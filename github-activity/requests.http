@@ -1,0 +1,6 @@
+### List All Users
+
+GET http://localhost:3000/githubactivity
+
+### Get Detail of a specific User
+GET http://localhost:3000/githubactivity/1
