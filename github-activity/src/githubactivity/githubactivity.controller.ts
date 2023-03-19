@@ -1,4 +1,4 @@
-import { Controller,Get,Param } from '@nestjs/common';
+import { Controller,Get,Param,NotFoundException } from '@nestjs/common';
 import { GithubActivityService } from './githubactivityservice';
 @Controller('githubactivity')
 export class GithubactivityController {
@@ -16,8 +16,15 @@ export class GithubactivityController {
     }
 
     @Get('/:id')
-    getUser(@Param('id') id: string) {
-        return this.githubService.findOne(id);
+    async getUser(@Param('id') id: string) {
+        const user = await this.githubService.findOne(id);
+
+        if (!user) {
+            throw new NotFoundException('user not found')
+        }
+
+        return user
+        
         
     }
 }
