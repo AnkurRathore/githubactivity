@@ -1,5 +1,7 @@
+import { Injectable } from "@nestjs/common";
 import { readFile } from "fs/promises";
 
+@Injectable()
 export class GithubActivityRepository {
     async findOne(id: string) {
         const contents = await readFile('users.json', 'utf8');

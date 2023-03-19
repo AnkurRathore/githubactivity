@@ -3,4 +3,4 @@
 GET http://localhost:3000/githubactivity
 
 ### Get Detail of a specific User
-GET http://localhost:3000/githubactivity/2
+GET http://localhost:3000/githubactivity/28946

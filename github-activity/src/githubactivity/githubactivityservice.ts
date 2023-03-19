@@ -1,16 +1,15 @@
+import { Injectable } from "@nestjs/common";
 import { GithubActivityRepository } from "./githubactivityrepository";
 
 
 
-
+@Injectable()
 export class GithubActivityService{
 
-    githubRepo: GithubActivityRepository;
+   
 
-    constructor() {
-        // This service is creating it's own dependency
-        // Can be refactored using DependenvyInjection
-        this.githubRepo = new GithubActivityRepository();
+    constructor(public githubRepo: GithubActivityRepository) {
+     
     }
 
     findOne(id: string) {
